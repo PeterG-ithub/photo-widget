@@ -6,6 +6,11 @@
 <% end %> 
 <% if @flickr_response %>
   <% @flickr_response.each do |item| %>
-  <%= item['id']%>
+  <% server_id = item['server']%>
+  <% id = item['id']%>
+  <% secret = item['secret']%>
+  <% size_suffix = 'w'%>
+  <% "https://live.staticflickr.com/#{server_id}/#{id}_#{secret}_#{size_suffix}.jpg"%>
+  <img src=<%= "https://live.staticflickr.com/#{server_id}/#{id}_#{secret}_#{size_suffix}.jpg"%> alt="" >
   <% end %>
 <% end %>
